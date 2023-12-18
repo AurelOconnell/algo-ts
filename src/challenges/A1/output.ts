@@ -1,4 +1,13 @@
-import { Student } from "./answer";
+import { Student } from "./answer"; // Name import, se fait avec un name export
+import Test from "./answer"; // Default import, se fait avec un default export
+
+const object = { 
+    name: "joseph",
+}
+console.log(object.name);
+
+const { name } = object;
+console.log(name);
 
 export default [
     {
