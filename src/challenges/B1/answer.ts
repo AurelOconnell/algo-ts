@@ -8,11 +8,24 @@
  */
 
 // ↓ uncomment bellow lines and add your response!
-/*
+
 export default function ({ events }: { events: EventDatetime[] }): EventDatetime[] {
-    return [];
+
+    events.sort((a, b) => { 
+        const dateA = new Date(a.startDatetime).getTime();
+        const dateB = new Date(b.startDatetime).getTime();
+        
+        if (dateA !== dateB) {
+            return dateA - dateB;
+        } else {
+            const durationA = new Date(a.endDatetime).getTime() - dateA;
+            const durationB = new Date(b.endDatetime).getTime() - dateB;
+            return durationA - durationB;
+        }
+    });
+
+    return events;
 }
-*/
 
 // used interfaces, do not touch
 export interface EventDatetime {

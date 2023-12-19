@@ -14,7 +14,9 @@ export default function ({ groups }: { groups: Group[] }): GroupWithSkills[] {
     const groupsWithSkills: GroupWithSkills[] = [];
 
     for (const group of groups) {
-        const uniqueSkills = Array.from(new Set(group.students.map(student => student.skills || []).reduce((acc, skills) => acc.concat(skills), []))).sort();
+        const uniqueSkills = Array.from(new Set(group.students.map(student => student.skills || [])
+        .reduce((acc, skills) => acc.concat(skills), [])))
+        .sort();
         
         const groupWithSkillsObject: GroupWithSkills = {
             ...group,
@@ -26,7 +28,6 @@ export default function ({ groups }: { groups: Group[] }): GroupWithSkills[] {
 
     return groupsWithSkills;
 }
-
 
 
 // used interfaces, do not touch
