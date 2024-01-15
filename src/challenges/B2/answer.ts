@@ -7,11 +7,18 @@
  */
 
 // ↓ uncomment bellow lines and add your response!
-/*
+
 export default function ({ events }: { events: EventWithCategory[] }): string[] {
-    return [];
+
+    const allCategories = events.flatMap(event => event.categories);
+
+    const uniqueCategories: string[] = Array.from(new Set(allCategories));
+
+    const sortedCategories: string [] = uniqueCategories.slice().sort();
+
+    return sortedCategories;
 }
-*/
+
 
 // used interfaces, do not touch
 export interface EventWithCategory {
